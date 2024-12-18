@@ -1,0 +1,18 @@
+<div class="skills-container">
+  <h2>Professional Skills</h2>
+  <div class="categories-grid" [@staggerList]>
+    <div class="category" *ngFor="let category of skillCategories; let i = index" 
+         [style.border-left]="'4px solid ' + category.color"
+         [@fadeInOut]>
+      <h3 [style.color]="category.color">{{category.name}}</h3>
+      <div class="skills-list">
+        <div class="skill" *ngFor="let skill of category.skills; let j = index"
+             [style.background]="category.gradient"
+             [style.animation-delay]="getRandomDelay(i, j) + 's'"
+             [@fadeInOut]>
+          {{skill}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

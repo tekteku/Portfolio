@@ -1,0 +1,42 @@
+<nav class="navbar">
+  <div class="navbar__logo">
+    <h2>Portfolio</h2>
+  </div>
+  <ul class="navbar__links">
+    <li><a href="#home" [class.active]="currentSection === 'home'">Home</a></li>
+    <li><a href="#about" [class.active]="currentSection === 'about'">About</a></li>
+    <li><a href="#projects" [class.active]="currentSection === 'projects'">Projects</a></li>
+    <li><a href="#contact" [class.active]="currentSection === 'contact'">Contact</a></li>
+  </ul>
+  <button class="navbar__toggle" (click)="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+<div class="home" (mousemove)="onMouseMove($event)">
+  <div class="particles-container">
+    <div class="particle" *ngFor="let particle of particles" 
+         [style.left.px]="particle.x"
+         [style.top.px]="particle.y">
+    </div>
+  </div>
+  
+  <div class="nature-element">
+    <img class="nature-element__leaf nature-element__leaf--1" src="assets/images/leaf.svg" alt="leaf">
+    <img class="nature-element__leaf nature-element__leaf--2" src="assets/images/leaf.svg" alt="leaf">
+    <img class="nature-element__leaf nature-element__leaf--3" src="assets/images/leaf.svg" alt="leaf">
+  </div>
+  
+  <h1 [class.animate]="true">{{ welcomeMessage }}</h1>
+  <p [class.animate]="true">{{ introduction }}</p>
+  
+  <div class="content" *ngFor="let section of natureSections">
+    <h2>{{ section.title }}</h2>
+    <p>{{ section.description }}</p>
+  </div>
+  
+  <div class="interactive-background" 
+       [style.transform]="'rotateX(' + tiltY + 'deg) rotateY(' + tiltX + 'deg)'">
+  </div>
+</div>

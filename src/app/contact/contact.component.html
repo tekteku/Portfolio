@@ -1,0 +1,31 @@
+<form class="contact-form" (ngSubmit)="onFormSubmit()">
+  <div class="form-group">
+    <input type="text" id="name" name="name" placeholder="Enter your name"
+           required
+           (focus)="onInputFocus($event)"
+           (blur)="onInputBlur($event)">
+    <label for="name">Name</label>
+  </div>
+  <div class="form-group">
+    <input type="email" id="email" name="email" placeholder="Enter your email"
+           required
+           (focus)="onInputFocus($event)"
+           (blur)="onInputBlur($event)">
+    <label for="email">Email</label>
+  </div>
+  <div class="form-group">
+    <label for="company">Company</label>
+    <input type="text" id="company" name="company" placeholder="Enter your company">
+  </div>
+  <div class="form-group">
+    <label for="project">Project Description</label>
+    <textarea id="project" name="project" placeholder="Describe your project" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="budget">Ballpark Budget</label>
+    <input type="text" id="budget" name="budget" placeholder="Enter your ballpark budget">
+  </div>
+  <button type="submit" class="btn-submit" [disabled]="formSubmitted">
+    {{ formSubmitted ? 'Message Sent!' : 'Send Message' }}
+  </button>
+</form>

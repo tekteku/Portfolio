@@ -1,0 +1,16 @@
+<div class="projects-container">
+  <svg class="bee" *ngFor="let i of [1,2,3]" [@beeFlying] xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path fill="#8BC34A" d="M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-1.73,1.73,1,1.41-2.45,2.45,1.41,1-1.73,2.45,1.41,0,0,1.41-2.45,1.73,1,1-1.73,1.73,1,1-1.73,1.41-2.45,1.73,1,1-1.73,1.73,1,1.41-2.45,1.73,1,1-1.73,1.73,1,0.7-1.2C28.88,7.31,17,8,17,8z"/>
+  </svg>
+  <div class="nature-element" style="top: 10%; left: 5%;">🍃</div>
+  <div class="nature-element" style="top: 30%; right: 15%;">🌿</div>
+  <div class="nature-element" style="bottom: 20%; left: 25%;">🍂</div>
+  <div class="project-card" *ngFor="let project of projects" [@honeycombAnimation]>
+    <h3>{{ project.name }}</h3>
+    <p>{{ project.description }}</p>
+    <div class="technologies">
+      <span *ngFor="let tech of project.technologies">{{ tech }}</span>
+    </div>
+    <a [href]="project.link" target="_blank">Explore Project</a>
+  </div>
+</div>

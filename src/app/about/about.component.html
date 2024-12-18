@@ -1,0 +1,82 @@
+<nav [class.scrolled]="isScrolled" [class.menu-open]="isMenuOpen">
+  <div class="nav-content">
+    <div class="logo">
+      <span class="logo-text">TC</span>
+      <div class="logo-dot"></div>
+    </div>
+    
+    <button class="hamburger" [class.active]="isMenuOpen" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-links" [class.active]="isMenuOpen">
+      @for(item of menuItems; track item) {
+        <a [href]="item.href" 
+           [class.active]="activeSection === item.href"
+           (click)="scrollTo(item.href)">
+          <span class="nav-icon"><i [class]="item.icon"></i></span>
+          <span class="nav-text">{{item.label}}</span>
+        </a>
+      }
+    </div>
+  </div>
+</nav>
+
+<div class="about" id="about">
+  <div class="content">
+    <h1 class="animate-text">{{ name }}</h1>
+    <h2 class="animate-text">{{ title }}</h2>
+    <p class="description">{{ description }}</p>
+    
+    <div class="skills">
+      <span *ngFor="let skill of skills; let i = index" [style.animation-delay]="i * 0.1 + 's'">
+        {{ skill }}
+      </span>
+    </div>
+    
+    <div class="interests">
+      <span *ngFor="let interest of interests; let i = index" [style.animation-delay]="i * 0.1 + 's'">
+        {{ interest }}
+      </span>
+    </div>
+  </div>
+  
+  <section id="experience" class="experience-section">
+    <h2>Experience</h2>
+    <div class="timeline">
+      @for(exp of experiences; track exp) {
+        <div class="timeline-item">
+          <div class="year">{{exp.year}}</div>
+          <div class="details">
+            <h3>{{exp.title}}</h3>
+            <p>{{exp.company}}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section id="education" class="education-section">
+    <h2>Education</h2>
+    <div class="education-card">
+      <h3>{{education.degree}}</h3>
+      <p>{{education.university}}</p>
+      <p>{{education.year}}</p>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-content">
+    <div class="social-links">
+      @for(link of socialLinks; track link) {
+        <a [href]="link.url" target="_blank">
+          <i [class]="link.icon"></i>
+        </a>
+      }
+    </div>
+    <p>&copy; 2024 Your Name. All rights reserved.</p>
+  </div>
+</footer>

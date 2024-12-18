@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.mobile-menu {
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  
+  @media (max-width: 768px) {
+    display: none;
+    &.active {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  &.active {
+    font-weight: bold;
+  }
+}

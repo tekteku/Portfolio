@@ -1,0 +1,94 @@
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.contact-form {
+  background: rgba(28, 28, 28, 0.8);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .form-group {
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      transform: translateY(0);
+      transition: all 0.3s ease;
+      color: var(--secondary-color, #4ECDC4);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      background: rgba(44, 44, 44, 0.5);
+      border: 2px solid transparent;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 16px;
+      color: #fff;
+      transition: all 0.3s ease;
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      &:focus {
+        border-color: var(--accent-color, #45B7D1);
+        background: rgba(44, 44, 44, 0.8);
+        box-shadow: 0 0 15px rgba(69, 183, 209, 0.3);
+      }
+
+      &.input-focused + label {
+        transform: translateY(-25px);
+        font-size: 12px;
+      }
+    }
+
+    textarea {
+      height: 120px;
+      resize: none;
+    }
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: linear-gradient(45deg, 
+      var(--primary-color, #FF6B6B),
+      var(--accent-color, #45B7D1));
+    background-size: 200% 200%;
+    animation: gradient 5s ease infinite;
+    color: #fff;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
